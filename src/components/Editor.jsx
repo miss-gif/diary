@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import "./Editor.css";
 import EmotionItem from "./EmotionItem";
 import Button from "./Button";
@@ -50,12 +49,16 @@ const Editor = () => {
   });
 
   const onChangeInput = (e) => {
-    console.log(e.target.name);
-    console.log(e.target.value);
+    let name = e.target.name;
+    let value = e.target.name;
+
+    if (name === "createdDate") {
+      value = new Date(value);
+    }
 
     setInput({
       ...input,
-      // [e.target.name]: e.target.value,
+      [name]: value,
     });
   };
 
@@ -66,7 +69,7 @@ const Editor = () => {
       <section className="date_section">
         <h3>오늘의 날짜</h3>
         <input
-          name="createDate"
+          name="createdDate"
           onChange={onChangeInput}
           value={getStringedDate(input.createDate)}
           type="date"
@@ -90,8 +93,8 @@ const Editor = () => {
         <textarea name="" id="" placeholder="오늘은 어땠나요?"></textarea>
       </section>
       <section className="button_section">
-        <Button text="취소하기"></Button>
-        <Button text="작성완료" type="POSITIVE"></Button>
+        <Button text="취소하기" />
+        <Button text="작성완료" type="POSITIVE" />
       </section>
     </div>
   );

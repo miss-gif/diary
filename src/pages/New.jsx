@@ -11,8 +11,8 @@ const New = () => {
       <Header
         title={"새 일기 쓰기"}
         leftChild={<Button onClick={() => nav(-1)} text={"< 뒤로가기"} />}
-      ></Header>
-      <Editor></Editor>
+      />
+      <Editor />
     </div>
   );
 };

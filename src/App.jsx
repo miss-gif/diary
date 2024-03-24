@@ -10,7 +10,7 @@ import Notfound from "./pages/Notfound";
 const mockData = [
   {
     id: 1,
-    createdDate: new Date("2024-03-19").getTime(),
+    createdDate: new Date("2024-02-19").getTime(),
     emotionId: 1,
     content: "1번 일기 내용",
   },
