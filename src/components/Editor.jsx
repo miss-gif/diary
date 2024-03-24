@@ -1,6 +1,7 @@
 import "./Editor.css";
 import EmotionItem from "./EmotionItem";
 import Button from "./Button";
+import { useState } from "react";
 
 const emotionList = [
   {
@@ -26,39 +27,35 @@ const emotionList = [
 ];
 
 const getStringedDate = (targetDate) => {
-  let year = targetDate.getFullYear();
-  let month = targetDate.getMonth();
+  const year = targetDate.getFullYear();
+  let month = targetDate.getMonth() + 1;
   let date = targetDate.getDate();
 
-  if (month < 10) {
-    month = `0${month}`;
-  }
-
-  if (date < 10) {
-    date = `0${date}`;
-  }
+  // 월과 일이 한 자리 수일 경우 앞에 0을 추가해줍니다.
+  month = month < 10 ? `0${month}` : month;
+  date = date < 10 ? `0${date}` : date;
 
   return `${year}-${month}-${date}`;
 };
 
 const Editor = () => {
   const [input, setInput] = useState({
-    createDate: new Date(),
+    createdDate: new Date(),
     emotionId: 3,
     content: "",
   });
 
   const onChangeInput = (e) => {
-    let name = e.target.name;
-    let value = e.target.name;
+    const { name, value } = e.target;
 
+    let parsedValue = value;
     if (name === "createdDate") {
-      value = new Date(value);
+      parsedValue = new Date(value);
     }
 
     setInput({
       ...input,
-      [name]: value,
+      [name]: parsedValue,
     });
   };
 
@@ -71,7 +68,7 @@ const Editor = () => {
         <input
           name="createdDate"
           onChange={onChangeInput}
-          value={getStringedDate(input.createDate)}
+          value={getStringedDate(input.createdDate)}
           type="date"
         />
       </section>
