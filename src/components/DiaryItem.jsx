@@ -14,7 +14,7 @@ const DiaryItem = ({ id, createdDate, emotionId, content }) => {
           nav(`/diary/${id}`);
         }}
       >
-        <img src={getEmotionImage(1)} alt="" />
+        <img src={getEmotionImage(emotionId)} alt="" />
       </div>
       <div
         className="info_section"
