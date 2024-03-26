@@ -15,6 +15,12 @@ const mockData = [
     content: "1번 일기 내용",
   },
   {
+    id: 4,
+    createdDate: new Date("2024-03-19").getTime(),
+    emotionId: 1,
+    content: "4번 일기 내용",
+  },
+  {
     id: 2,
     createdDate: new Date("2024-04-19").getTime(),
     emotionId: 2,
@@ -49,7 +55,7 @@ export const DiaryDispatchContext = createContext();
 
 const App = () => {
   const [data, dispatch] = useReducer(reducer, mockData);
-  const idRef = useRef(4);
+  const idRef = useRef(5);
 
   // 새 일기 추가
   const onCreate = (createdDate, emotionId, content) => {
