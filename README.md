@@ -1,15 +1,3 @@
-프로젝트 소개:
-프로젝트 이름 : 감정 일기장
-간략한 설명 : 일기와 감정을 함께 기록 할 수 있는 서비스
-주요 기능 :
-일기 쓰기, 읽기, 수정, 삭제 (CRUD)
-일기 월별 필터, 일기 최신순과 오래된 순 정렬 가능
-사용 기술 스택 :
-React, react-router, vite
-설치 및 실행:
-설치 `npm i`
-실행 `npm run dev`
-
 # 감정 일기장
 
 ## 프로젝트 소개
@@ -26,6 +14,8 @@ React, react-router, vite
 
     React
     react-router
+    Vite (빌드 도구)
+    Vercel (배포)
 
 ## 설치 및 실행
 
